@@ -52,7 +52,10 @@ class Mymodel(tf.keras.Model):
 			x = self.dropout(x)
 		return self.dense2(x)
 ```
-注[^super(Mymodel.self)]. [^super(Mymodel.self)]:当子类重写父类构造函数时，如果想要调用父类构造函数时，必须显式调用。
+注[^super(Mymodel.self)].
+
+[^super(Mymodel.self)]:当子类重写父类构造函数时，如果想要调用父类构造函数时，必须显式调用。
+
 - model.compile(...): 定义模型的config，例如losses，metrics等。
 - model.fit(): train the model
 - model.predict(): use the model to do prediction
