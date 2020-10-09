@@ -10,8 +10,7 @@
 - 前5层位卷积，最后三层为全连接层
 - 最后输出一个1000维的向量表示输入图像属于每一类的概率
 
-<img src="./picture/VGG16.png" alt="VGG16 网络结构图" width="50%">
-;![VGG16 网络结构图](./picture/VGG16.png)
+![VGG16 网络结构图](./picture/VGG16.png)
 
 ### FCN
 - 将最后三层的全连接层改为卷积层，那么FCN可适应任意尺寸的输入。
@@ -24,7 +23,7 @@
 - 此图示例为PASCAL数据集上的示例，因此需要预测的目标有*21类=20类+背景*。
 - 蓝色：卷积；绿色：maxPooling
 
-<img src="./picture/Network_structure.png" alt="FCN 网络结构图">
+![FCN 网络结构图](./picture/Network_structure.png)
 
 **如何将全连接层变为卷积层**：
 > 比如AlexNet卷积后的图像尺寸为7*7*512，然后AlexNet使用了两个4096的全连接层，最后有一个1000的全连接层用于计算分类概率。
