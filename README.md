@@ -34,3 +34,26 @@ def load_data(path):
 
 ## tensorflow
 - logits: in tensorflow, means that unnormalized "probability", often as output of dense layer and input of softmax layer
+
+## keras
+#### model
+- tf.keras.Model(inputs,outputs,name), 函数式API
+- class Mymodel(tf.keras.Model), 子类model, 子类model需要实现__init__构造函数和前向传播call. 其中training可以控制模型在training和testing阶段拥有不同的策略。
+```python
+class Mymodel(tf.keras.Model):
+	def __init__(self):
+		super(Mymodel,self).__init__()
+		self.dense1 = tf.keras.layers.Dense(4, activation = tf.nn.relu)
+		self.dense2 = tf.keras.layers.Dense(5, activation = tf.nn.softmax)
+		self.dropout = tf.keras.layers.Dropout(0.5)
+	def call(self, inputs, training=False):
+		x = self.dense1(inputs)
+		if training:
+			x = self.dropout(x)
+		return self.dense2(x)
+```
+注[^super(Mymodel.self)]. [^super(Mymodel.self)]:当子类重写父类构造函数时，如果想要调用父类构造函数时，必须显式调用。
+- model.compile(...): 定义模型的config，例如losses，metrics等。
+- model.fit(): train the model
+- model.predict(): use the model to do prediction
+- model.evaluate():
